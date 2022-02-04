@@ -28,7 +28,7 @@ const userController = {
         });
     },
 
-    // create user
+    // create user 
     createUser({ body }, res) {
         User.create(body)
         .then(dbUserData => res.json(dbUserData))
@@ -40,7 +40,7 @@ const userController = {
         User.findOneAndUpdate({ _id: params.id }, body, { new: true })
         .then(dbUserData => {
             if (!dbUserData) {
-                res.status(404).json({ message: 'No user foudn with this id' });
+                res.status(404).json({ message: 'No user found with this id' });
                 return;
             }
             res.json(dbUserData);
