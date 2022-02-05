@@ -1,29 +1,32 @@
 const { Schema, model } = require('mongoose');
 const { stringify } = require('querystring');
+const dateFormat = require('../utils/dateFormat')
+const reactionSchema = require('./Reaction')
 
 const ThoughtSchema = new Schema(
     {
     thoughtText: {
         type: String,
         required: true,
-        max: 280
+        maxlength: 280,
+        minlength: 1
     },
     createdAt: {
         type: Date,
-        default: Date.now
-        // use a getter method to format the timestamp on query
+        default: Date.now,
+        get: timestamp => dateFormat(timestamp)
     },
     username: {
         type: String,
         required: true
     },
-    reactions: []
+    reactions: [reactionSchema]
     },
     {
         toJSON: {
             virtuals: true,
+            getters: true
         },
-        id: false
     }
 )
 
