@@ -1,7 +1,10 @@
-# 18_Social_Network_API
+# Social_Network_API
 
 ## Description
 an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list.
+
+## Technologies Used
+ Express.js for routing, a MongoDB database, and the Mongoose ODM
 
 ## Links
 * [GitHub](https://github.com/amenkes24)
